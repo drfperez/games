@@ -12,14 +12,7 @@ class Snake {
     this.ydir = y;
   }
 
-  update() {
-    let head = this.body[this.body.length - 1].copy();
-    this.body.shift();
-    head.x += this.xdir;
-    head.y += this.ydir;
-
-    this.body.push(head);
-  }
+  
 
   grow() {
     let head = this.body[this.body.length - 1].copy();
@@ -30,9 +23,6 @@ class Snake {
   endGame() {
     let x = this.body[this.body.length - 1].x;
     let y = this.body[this.body.length - 1].y;
-    // if(x > w-1 || x < 0 || y > h-1 || y < 0) {
-    //    return true;
-    // }
     x = constrain(x, 0, w - 1);
     y = constrain(y, 0, h - 1);
     for (let i = 0; i < this.body.length - 1; i++) {
@@ -53,6 +43,18 @@ class Snake {
     }
     return false;
   }
+  
+  update() {
+  let head = this.body[this.body.length - 1].copy();
+  this.body.shift();
+  head.x += this.xdir;
+  head.y += this.ydir;
+  if (head.x < 0) head.x = 0;
+  if (head.x > w - 1) head.x = w - 1;
+  if (head.y < 0) head.y = 0;
+  if (head.y > h - 1) head.y = h - 1;
+  this.body.push(head);
+}
 
   show() {
     for (let i = 0; i < this.body.length; i++) {
