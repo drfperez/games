@@ -1,4 +1,3 @@
-
 let ship;
 let asteroids = [];
 let lasers = [];
@@ -275,4 +274,3 @@ class Asteroid { // Declara la classe Asteroid
     }
   }
 }
-
