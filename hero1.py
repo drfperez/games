@@ -1,5 +1,4 @@
-# Importing the random module to use for randomizing numbers and strings 
-later
+# Importing the random module to use for randomizing numbers and strings later
 import random
 # Importing the time module to create a delay
 import time
